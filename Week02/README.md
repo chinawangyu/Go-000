@@ -5,4 +5,4 @@
 #### 3. [消除error示例代码](./code/error2.go)
 #### 4. [pkg/errors库示例代码](./code/error3.go)
 #### 5. [errors与pkg/errors示例代码](./code/error4.go)
-#### 6. [作业](./task/main.go)
+#### 6. [作业](./task)
