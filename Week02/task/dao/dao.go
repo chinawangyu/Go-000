@@ -6,10 +6,6 @@ import (
 	"task/db"
 )
 
-//重新包装 sql.ErrNoRows 错(此处简单包装下)
-type notFoundError struct {
-}
-
 func NewErrNoRows() error {
 	return sql.ErrNoRows
 }
