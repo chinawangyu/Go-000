@@ -11,8 +11,14 @@ import (
 	"task/http/internal/router"
 	"time"
 )
-
+var Config config
 func Init() {
+	/*var configFile = flag.String("f", "./config.toml", "配置文件")
+	flag.Parse()
+	if _, err := toml.DecodeFile(*configFile, &Config); err != nil {
+		panic(err)
+	}
+*/
 	//日志初始化
 	//数据库初始化
 }
@@ -28,7 +34,7 @@ func main() {
 	}
 
 	srv := &http.Server{
-		Addr:           ":8888",
+		Addr:           Config.Port,
 		Handler:        g,
 		ReadTimeout:    20 * time.Second,
 		WriteTimeout:   20 * time.Second,
@@ -37,7 +43,7 @@ func main() {
 
 	go func() {
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("listen port %s error", err.Error())
+			log.Fatalf("listen port %s error", Config.Port)
 		}
 	}()
 
